@@ -49,9 +49,24 @@ body {
   background: white;
   border-radius: 2rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  padding: 3rem;
+  padding: 2rem;
   max-width: 800px;
   width: 90vw;
+}
+
+.team-photo {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.team-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .main-title {

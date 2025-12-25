@@ -7,8 +7,15 @@ export default function MainMenu({ onNavigate }: MainMenuProps) {
   return (
     <div className="container">
       <div className="main-card">
-        <h1 className="main-title">🎮 김생뿡 컨텐츠</h1>
-        <p className="main-subtitle">선택 ㄱㄱ</p>
+        <div className="team-photo">
+          <img 
+            src="/team-photo.jpg" 
+            alt="우리 모임" 
+            className="team-image"
+          />
+        </div>
+        <h1 className="main-title">🎮 놀이터</h1>
+        <p className="main-subtitle">원하는 게임을 선택해보세요!</p>
 
         <div className="menu-grid">
           <button className="menu-button map-button" onClick={() => onNavigate('map')}>
@@ -31,7 +38,7 @@ export default function MainMenu({ onNavigate }: MainMenuProps) {
             <div className="menu-icon">🎲</div>
             <div className="menu-text">
               <h2>복불복</h2>
-              <p>한명 죠지기</p>
+              <p>행운의 주인공은?</p>
             </div>
           </button>
         </div>
