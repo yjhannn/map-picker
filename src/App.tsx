@@ -118,8 +118,8 @@ function App() {
   return (
     <div className="container">
       <div className="card">
-        <h1 className="title">🗺️ 경상도 지도 찍기</h1>
-        <p className="subtitle">버튼을 눌러 랜덤으로 여행지를 선택해보세요!</p>
+        <h1 className="title">🗺️ 김생뿡 지도 찍기 컨텐츠</h1>
+        <p className="subtitle">시작!</p>
         <p className="region-count">총 {regions.length}개 지역</p>
 
         <div className="map-container">
@@ -202,7 +202,7 @@ function App() {
               <p className="result-name" style={{ color: selectedRegion.color }}>
                 {selectedRegion.name}
               </p>
-              <p className="result-subtitle">즐거운 여행 되세요! ✈️</p>
+              <p className="result-subtitle">떠나뿌자 ✈️</p>
             </div>
           )}
         </div>
