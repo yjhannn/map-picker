@@ -6,7 +6,7 @@ import TeamBuilder from './components/TeamBuilder.tsx';
 import LuckyDraw from './components/LuckyDraw.tsx';
 import DriverPicker from './components/DriverPicker.tsx';
 
-type Page = 'main' | 'map' | 'team' | 'lucky';
+type Page = 'main' | 'map' | 'team' | 'lucky' | 'driver';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('main');
