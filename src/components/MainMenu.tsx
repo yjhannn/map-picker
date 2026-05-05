@@ -1,6 +1,6 @@
 // src/components/MainMenu.tsx
 interface MainMenuProps {
-  onNavigate: (page: 'map' | 'team' | 'lucky') => void;
+  onNavigate: (page: 'map' | 'team' | 'lucky' | 'driver') => void;
 }
 
 export default function MainMenu({ onNavigate }: MainMenuProps) {
@@ -39,6 +39,14 @@ export default function MainMenu({ onNavigate }: MainMenuProps) {
             <div className="menu-text">
               <h2>복불복</h2>
               <p>한명 죠지기</p>
+            </div>
+          </button>
+
+          <button className="menu-button driver-button" onClick={() => onNavigate('driver')}>
+            <div className="menu-icon">🚗</div>
+            <div className="menu-text">
+              <h2>운전자 뽑기</h2>
+              <p>오늘의 기사님은?</p>
             </div>
           </button>
         </div>

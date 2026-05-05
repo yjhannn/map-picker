@@ -1,7 +1,7 @@
 // src/components/LuckyDraw.tsx
 import { useState, useEffect } from 'react';
 
-const members = ['김준호', '김윤관', '나은빈', '도현우', '송준규', '임채연', '허고은', '한영진'];
+const members = ['김준호', '김윤관', '나은빈', '도현우', '박신영', '송준규', '임채연', '허고은', '한영진'];
 
 interface LuckyDrawProps {
   onBack: () => void;

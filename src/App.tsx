@@ -4,6 +4,7 @@ import MainMenu from './components/MainMenu.tsx';
 import MapPicker from './components/MapPicker.tsx';
 import TeamBuilder from './components/TeamBuilder.tsx';
 import LuckyDraw from './components/LuckyDraw.tsx';
+import DriverPicker from './components/DriverPicker.tsx';
 
 type Page = 'main' | 'map' | 'team' | 'lucky';
 
@@ -20,6 +21,8 @@ function App() {
         return <TeamBuilder onBack={() => setCurrentPage('main')} />;
       case 'lucky':
         return <LuckyDraw onBack={() => setCurrentPage('main')} />;
+      case 'driver':
+        return <DriverPicker onBack={() => setCurrentPage('main')} />;
       default:
         return <MainMenu onNavigate={setCurrentPage} />;
     }

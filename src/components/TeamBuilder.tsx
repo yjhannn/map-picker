@@ -1,7 +1,7 @@
 // src/components/TeamBuilder.tsx
 import { useState } from 'react';
 
-const members = ['김준호', '김윤관', '나은빈', '도현우', '송준규', '임채연', '허고은', '한영진'];
+const members = ['김준호', '김윤관', '나은빈', '도현우', '송준규', '임채연', '허고은', '한영진', '박신영'];
 
 const teamColors = [
   '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', 
@@ -13,7 +13,7 @@ interface TeamBuilderProps {
 }
 
 export default function TeamBuilder({ onBack }: TeamBuilderProps) {
-  const [teamSize, setTeamSize] = useState<2 | 4 | null>(null);
+  const [teamSize, setTeamSize] = useState<2 | 3 | 4 | null>(null);
   const [teams, setTeams] = useState<string[][]>([]);
   const [isBuilding, setIsBuilding] = useState(false);
 
@@ -26,7 +26,7 @@ export default function TeamBuilder({ onBack }: TeamBuilderProps) {
     return shuffled;
   };
 
-  const buildTeams = (size: 2 | 4) => {
+  const buildTeams = (size: 2 | 3 | 4) => {
     setIsBuilding(true);
     setTeamSize(size);
     setTeams([]);
@@ -35,8 +35,21 @@ export default function TeamBuilder({ onBack }: TeamBuilderProps) {
       const shuffled = shuffleArray(members);
       const newTeams: string[][] = [];
       
-      for (let i = 0; i < shuffled.length; i += size) {
-        newTeams.push(shuffled.slice(i, i + size));
+      if (size === 2) {
+        // 2명씩: 3-2-2-2 (첫 팀만 3명)
+        newTeams.push(shuffled.slice(0, 3));
+        newTeams.push(shuffled.slice(3, 5));
+        newTeams.push(shuffled.slice(5, 7));
+        newTeams.push(shuffled.slice(7, 9));
+      } else if (size === 3) {
+        // 3명씩: 3-3-3
+        newTeams.push(shuffled.slice(0, 3));
+        newTeams.push(shuffled.slice(3, 6));
+        newTeams.push(shuffled.slice(6, 9));
+      } else if (size === 4) {
+        // 4명씩: 5-4 (첫 팀만 5명)
+        newTeams.push(shuffled.slice(0, 5));
+        newTeams.push(shuffled.slice(5, 9));
       }
       
       setTeams(newTeams);
@@ -61,14 +74,21 @@ export default function TeamBuilder({ onBack }: TeamBuilderProps) {
             onClick={() => buildTeams(2)}
             disabled={isBuilding}
           >
-            2명씩 ({members.length / 2}팀)
+            2인(4팀)
+          </button>
+          <button
+            className={`team-size-button ${teamSize === 3 ? 'active' : ''}`}
+            onClick={() => buildTeams(3)}
+            disabled={isBuilding}
+          >
+            3인
           </button>
           <button
             className={`team-size-button ${teamSize === 4 ? 'active' : ''}`}
             onClick={() => buildTeams(4)}
             disabled={isBuilding}
           >
-            4명씩 ({members.length / 4}팀)
+            4인(2팀)
           </button>
         </div>
 
